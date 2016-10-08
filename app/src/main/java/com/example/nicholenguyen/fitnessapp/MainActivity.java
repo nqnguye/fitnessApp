@@ -37,27 +37,23 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, Weight);
         adapter_weight.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_weight.setAdapter(adapter_weight);
-
-
-        Spinner spinner_height = (Spinner) findViewById(R.id.height_spinner);
-        ArrayAdapter<String> adapter_height = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, Height);
-        adapter_height.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_height.setAdapter(adapter_height);
     }
 
 
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editHeight = (EditText) findViewById(R.id.edit_height);
+        Intent intent = new Intent(this, Next.class);
+        EditText editHeightFeet = (EditText) findViewById(R.id.edit_height_feet);
+        EditText editHeightIn = (EditText) findViewById(R.id.edit_height_in);
         EditText editWeight = (EditText) findViewById(R.id.edit_weight);
         EditText editAge = (EditText) findViewById(R.id.edit_age);
-        String[] message = new String[]{editHeight.toString(), editWeight.toString(), editAge.toString()};
-        intent.putExtra(EXTRA_MESSAGE, message);
+        String gender = ((Spinner)findViewById(R.id.gender_spinner)).getSelectedItem().toString();
+        Person p = new Person(Integer.parseInt(editAge.getText().toString()), Integer.parseInt(editHeightFeet.getText().toString()),
+                Integer.parseInt(editHeightIn.getText().toString()), Integer.parseInt(editWeight.getText().toString()), gender);
+
+        intent.putExtra("person", p);
         startActivity(intent);
         // Do something in response to button
     }
-
     static final String[] Gender = new String[]{"Male", "Female"};
 
     static final String[] Weight = new String[]{"lb", "kg"};

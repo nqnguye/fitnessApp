@@ -22,15 +22,33 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <EditText android:id="@+id/edit_height"
+        <EditText android:id="@+id/edit_height_feet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="@string/edit_height" />
-        <Spinner
-            android:id="@+id/height_spinner"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="ft"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHighlight="@android:color/primary_text_dark"
+            android:layout_centerVertical="true"
+            android:textSize="30dp"/>
+        <EditText android:id="@+id/edit_height_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/edit_height" />
+        <TextView
+            android:text="in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHighlight="@android:color/primary_text_dark"
+            android:layout_centerVertical="true"
+            android:textSize="30dp"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -54,6 +72,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_next" />
+        android:text="@string/button_next"
+        android:onClick="sendMessage" />
 
 </LinearLayout>
